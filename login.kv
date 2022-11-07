@@ -1,0 +1,346 @@
+# there are three screens
+windowManager:
+	loginWindow:
+	signupWindow:
+	logDataWindow:
+	votingWindow:
+
+# GUI for the login window
+<loginWindow>:
+	ethereumAddress : ethereumAddress
+	password : password
+	FloatLayout:
+		size: root.width, root.height
+		Label:
+			text : "Ethereum Address: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.9}
+		TextInput:
+			id : ethereumAddress
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.9}
+			
+		Button:
+			text : "GET ADDRESS"
+			size_hint : 0.1, 0.1
+			pos_hint : {"x" : 0.8, "top" : 0.9}
+			on_release:
+				root.getAddress()
+			
+		Label:
+			text : "PASSWORD: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.7}
+		TextInput:
+			id : password
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.7}
+		Button:
+			text : "SIGN IN"
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.39, "top" : 0.4}
+			on_release:
+				root.validate()
+				root.manager.transition.direction = "up"
+		Button:
+			text : "SIGN UP"
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.39, "top" : 0.2}
+			on_release:
+				app.root.current = 'signup'
+				root.manager.transition.direction = "left"			
+
+# GUI for the signup window
+<signupWindow>:
+	password_reg : password_reg
+	fname_reg : fname_reg
+	lname_reg : lname_reg
+	age_reg : age_reg
+	gender_reg : gender_reg
+	email_reg : email_reg
+
+	FloatLayout:
+
+		Label:
+			text : "Password: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.8}
+		TextInput:
+			id : password_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.8}
+		Label:
+			text : "First Name: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.7}
+		TextInput:
+			id : fname_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.7}
+			
+		Label:
+			text : "Last Name: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.6}
+		TextInput:
+			id : lname_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.6}
+
+		Label:
+			text : "Age: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.5}
+		TextInput:
+			id : age_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.5}			
+			
+		Label:
+			text : "Gender: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.4}
+		TextInput:
+			id : gender_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.4}
+
+
+		Label:
+			text : "Email: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.20, "top" : 0.3}
+		TextInput:
+			id : email_reg
+			write_tab: False
+			multiline :True
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.3}			
+
+		
+			
+		Button:
+			text : "SUBMIT"
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.39, "top" : 0.1}
+			on_press :
+				root.signupbtn()
+				root.manager.transition.direction = "right"
+
+
+
+# GUI for the User Details window
+<userDetailsWindow>:
+	fname : fname
+	age : age
+	gender : gender
+	email : email
+	ethereumAddress : ethereumAddress	
+	
+	FloatLayout:
+		Label:
+			text : "User First Name: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.9}
+		Label:
+			text : ""
+			id: fname
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.9}
+
+		
+
+		Label:
+			text : "User Age: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.7}
+		Label:
+			text : ""
+			id : age
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.7}
+			
+		Label:
+			text : "User Gender: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.6}
+		Label:
+			text : ""
+			id : gender
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.6}
+
+
+
+
+
+
+
+
+
+			
+			
+		Label:
+			text : "Ethereum Address: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.5}
+		Label:
+			text : ""
+			id : ethereumAddress
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.55, "top" : 0.5}		
+
+
+
+
+		Label:
+			text : "User Email: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.20, "top":0.4}
+		Label:
+			text : ""
+			id : email
+			size_hint : 0.2, 0.1
+			pos_hint : {"x" : 0.40, "top" : 0.4}	
+			
+
+		Button:
+			text : "LOGOUT"
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.39, "top" : 0.1}
+			on_press :
+				root.LOGOUT()
+				root.manager.transition.direction = "down"			
+
+# GUI for the Transaction Details window
+<txnDetailsWindow>:
+	txn_from : txn_from
+	txn_to: txn_to
+	txn_contract : txn_contract
+	txn_hash : txn_hash
+	txn_gas : txn_gas
+	txn_nonce : txn_nonce	
+	eth_bal : eth_bal
+	
+	FloatLayout:
+		Label:
+			text : "Transaction From: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.9}
+		TextInput:
+			text : ""
+			id: txn_from
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.9}
+
+		Label:
+			text : "Transaction To: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.8}
+		TextInput:
+			text : ""
+			id : txn_to
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.8}
+
+		Label:
+			text : "Contract Address: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.7}
+		TextInput:
+			text : ""
+			id : txn_contract
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.7}
+			
+		Label:
+			text : "Transaction Hash: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.6}
+		TextInput:
+			text : ""
+			id : txn_hash
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.6}
+
+
+		Label:
+			text : "Transaction Gas: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.5}
+		TextInput:
+			text : ""
+			id : txn_gas
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.5}
+
+		Label:
+			text : "Transaction Nonce: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.4}
+		TextInput:
+			text : ""
+			id : txn_nonce
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.4}			
+
+		Label:
+			text : "ETHER Balance: "
+			size_hint : 0.2, 0.1
+			pos_hint : {"x":0.10, "top":0.3}
+		TextInput:
+			text : ""
+			id : eth_bal
+			write_tab: False
+			multiline :True			
+			text_size: self.width, None
+			size_hint : 0.5, 0.1
+			pos_hint : {"x" : 0.30, "top" : 0.3}	
+
+		Button:
+			text : "CLOSE"
+			size_hint : 0.3, 0.1
+			pos_hint : {"x" : 0.34, "top" : 0.1}
+			on_press :
+				root.Close()
+				root.manager.transition.direction = "down"						
+
+
+# GUI for pop up window
+<P>:
+	Label:
+		text : "Please enter valid information"
+		size_hint : 0.2, 0.1
+		pos_hint : {"x" : 0.3, "top" : 0.8}
